@@ -4,33 +4,24 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Baronial Gift Envelope</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/html2pdf.js/0.10.1/html2pdf.bundle.min.js"></script>
   <style>
     body {
       margin: 0;
       background: linear-gradient(135deg, #ffe6f0, #ffd6e9, #ffc1e3);
       background-size: 400% 400%;
       animation: gradientShift 10s ease infinite;
-      font-family: 'Dancing Script', cursive;
+      font-family: 'Georgia', serif;
       display: flex;
       justify-content: space-between;
       align-items: center;
       height: 100vh;
       overflow: hidden;
-      flex-direction: column;
     }
 
     @keyframes gradientShift {
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
-    }
-
-    .content {
-      display: flex;
-      width: 100%;
-      height: 90vh;
     }
 
     .left-panel {
@@ -179,82 +170,60 @@
     h2 {
       color: #b30059;
       margin-bottom: 12px;
-      font-size: 24px;
+      font-size: 32px;
     }
 
     p {
       color: #660033;
       margin: 0;
-      font-size: 16px;
-    }
-
-    .download-btn {
-      margin: 10px auto;
-      background: #c2185b;
-      color: white;
-      padding: 10px 20px;
-      border: none;
-      border-radius: 8px;
-      font-size: 16px;
-      cursor: pointer;
+      font-size: 20px;
     }
 
     @media (max-width: 768px) {
-      .content {
-        flex-direction: column;
-        height: auto;
-      }
-
-      .left-panel, .right-panel {
-        width: 100%;
-        height: 50%;
-      }
-
-      .envelope-wrapper {
-        width: 90%;
-        height: 240px;
-      }
-
       .paper {
-        font-size: 14px;
+        font-size: 18px;
+      }
+
+      h2 {
+        font-size: 28px;
+      }
+
+      p {
+        font-size: 18px;
       }
     }
   </style>
 </head>
 <body>
-  <div class="content">
-    <div class="left-panel">
-      <div class="music-player">
-        <div class="cover"></div>
-        <div class="track-info">Pretty Little Baby</div>
-        <div class="controls">
-          <button class="btn" onclick="playMusic()">Play</button>
-          <button class="btn" onclick="pauseMusic()">Pause</button>
-        </div>
-      </div>
-    </div>
-
-    <div class="right-panel">
-      <div class="envelope-wrapper" onclick="openEnvelope(this)">
-        <div class="envelope" id="download-section">
-          <div class="flap"></div>
-          <div class="seal">💮</div>
-          <div class="paper">
-            <h2>I Love You!! &lt;3</h2>
-            <p>
-              You are the best person I’ve ever met.<br>
-              Every day with you reminds me how lucky I am.<br>
-              Your smile lights up my world, your kindness inspires me,<br>
-              and your love makes everything better.<br>
-              I can’t imagine life without you — you’ve made my heart your home. 💖😊❤️✨
-            </p>
-          </div>
-        </div>
+  <div class="left-panel">
+    <div class="music-player">
+      <div class="cover"></div>
+      <div class="track-info">Pretty Little Baby</div>
+      <div class="controls">
+        <button class="btn" onclick="playMusic()">Play</button>
+        <button class="btn" onclick="pauseMusic()">Pause</button>
       </div>
     </div>
   </div>
 
-  <button class="download-btn" onclick="downloadCard()">Download Card as PDF</button>
+  <div class="right-panel">
+    <div class="envelope-wrapper" onclick="openEnvelope(this)">
+      <div class="envelope">
+        <div class="flap"></div>
+        <div class="seal">💮</div>
+        <div class="paper">
+          <h2>I Love You!! &lt;3</h2>
+          <p>
+            You are the best person I’ve ever met.<br>
+            Every day with you reminds me how lucky I am.<br>
+            Your smile lights up my world, your kindness inspires me,<br>
+            and your love makes everything better.<br>
+            I can’t imagine life without you — you’ve made my heart your home. 💖😊❤️✨
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
 
   <audio id="bgm" preload="auto" src="https://raw.githubusercontent.com/NotLaze/gift-envelope/main/pretty-little-baby.mp3"></audio>
 
@@ -263,31 +232,17 @@
 
     function openEnvelope(wrapper) {
       const envelope = wrapper.querySelector('.envelope');
-      if (!envelope.classList.contains('open')) {
-        envelope.classList.add('open');
-      }
+      envelope.classList.add('open');
     }
 
     function playMusic() {
-      audio.play().catch(err => console.log("Play error:", err));
+      audio.play().catch((err) => {
+        console.log("Play error:", err);
+      });
     }
 
     function pauseMusic() {
       audio.pause();
-    }
-
-    function downloadCard() {
-      const element = document.getElementById('download-section');
-      html2pdf()
-        .set({
-          margin: 0.5,
-          filename: 'Love-Letter-Card.pdf',
-          image: { type: 'jpeg', quality: 0.98 },
-          html2canvas: { scale: 2 },
-          jsPDF: { unit: 'in', format: 'letter', orientation: 'portrait' }
-        })
-        .from(element)
-        .save();
     }
   </script>
 </body>
