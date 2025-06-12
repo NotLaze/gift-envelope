@@ -5,8 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Baronial Gift Envelope</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
     body {
       margin: 0;
       background: linear-gradient(135deg, #ffe6f0, #ffd6e9, #ffc1e3);
@@ -36,15 +34,49 @@
       align-items: center;
       padding: 20px;
       box-sizing: border-box;
-      font-family: 'Press Start 2P', cursive;
-      font-size: 10px;
+    }
+
+    .music-player {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: #ffe6f0;
+      border: 2px solid #cc6699;
+      border-radius: 16px;
+      padding: 16px;
+      width: 90%;
+    }
+
+    .cover {
+      width: 100px;
+      height: 100px;
+      border-radius: 8px;
+      background-image: url('https://i.imgur.com/tZs2W6N.png'); /* Replace with actual cover art URL */
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 12px;
+    }
+
+    .track-info {
+      font-weight: bold;
+      font-size: 14px;
       color: #b30059;
+      margin-bottom: 10px;
       text-align: center;
     }
 
-    .lyrics {
-      white-space: pre-wrap;
-      line-height: 1.4;
+    .controls {
+      display: flex;
+      gap: 10px;
+    }
+
+    .btn {
+      padding: 6px 12px;
+      background: #cc6699;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
     }
 
     .right-panel {
@@ -148,11 +180,13 @@
 </head>
 <body>
   <div class="left-panel">
-    <div class="lyrics">
-      Pretty little baby, you’re my world<br>
-      Light up my life like diamonds and pearls<br>
-      Every time you smile, the sun comes out<br>
-      You’re the only one I dream about 💗
+    <div class="music-player">
+      <div class="cover"></div>
+      <div class="track-info">Pretty Little Baby</div>
+      <div class="controls">
+        <button class="btn" onclick="audio.play()">Play</button>
+        <button class="btn" onclick="audio.pause()">Pause</button>
+      </div>
     </div>
   </div>
 
@@ -177,7 +211,6 @@
       const envelope = wrapper.querySelector('.envelope');
       envelope.classList.add('open');
 
-      // Play audio when envelope opens
       audio.play().catch((err) => {
         console.log("Audio play failed:", err);
       });
