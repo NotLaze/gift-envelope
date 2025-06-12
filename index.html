@@ -51,7 +51,7 @@
       width: 100px;
       height: 100px;
       border-radius: 8px;
-      background-image: url('https://i.imgur.com/tZs2W6N.png'); /* Replace with actual cover art URL */
+      background-image: url('https://i.imgur.com/tZs2W6N.png');
       background-size: cover;
       background-position: center;
       margin-bottom: 12px;
@@ -184,8 +184,8 @@
       <div class="cover"></div>
       <div class="track-info">Pretty Little Baby</div>
       <div class="controls">
-        <button class="btn" onclick="audio.play()">Play</button>
-        <button class="btn" onclick="audio.pause()">Pause</button>
+        <button class="btn" onclick="playMusic()">Play</button>
+        <button class="btn" onclick="pauseMusic()">Pause</button>
       </div>
     </div>
   </div>
@@ -203,17 +203,24 @@
     </div>
   </div>
 
+  <audio id="bgm" preload="auto" src="https://raw.githubusercontent.com/NotLaze/gift-envelope/main/pretty-little-baby.mp3"></audio>
+
   <script>
-    const audio = new Audio("https://raw.githubusercontent.com/NotLaze/gift-envelope/main/pretty-little-baby.mp3");
-    audio.loop = true;
+    const audio = document.getElementById('bgm');
 
     function openEnvelope(wrapper) {
       const envelope = wrapper.querySelector('.envelope');
       envelope.classList.add('open');
+    }
 
+    function playMusic() {
       audio.play().catch((err) => {
-        console.log("Audio play failed:", err);
+        console.log("Play error:", err);
       });
+    }
+
+    function pauseMusic() {
+      audio.pause();
     }
   </script>
 </body>
