@@ -52,6 +52,28 @@
       transform: rotateX(-160deg);
     }
 
+    .seal {
+      position: absolute;
+      top: 42%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 40px;
+      height: 40px;
+      background: #c2185b;
+      border-radius: 50%;
+      color: white;
+      font-size: 22px;
+      line-height: 40px;
+      text-align: center;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+      z-index: 4;
+      transition: opacity 0.5s ease;
+    }
+
+    .envelope.open .seal {
+      opacity: 0;
+    }
+
     .paper {
       position: absolute;
       top: 40%;
@@ -90,6 +112,7 @@
   <div class="envelope-wrapper" onclick="openEnvelope(this)">
     <div class="envelope">
       <div class="flap"></div>
+      <div class="seal">💮</div>
       <div class="paper">
         <h2>🎁 A Royal Surprise!</h2>
         <p>Dearest, you are cherished beyond words. May your heart be forever joyful and blessed! 💖</p>
