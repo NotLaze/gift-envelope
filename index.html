@@ -144,27 +144,28 @@
       opacity: 0;
     }
 
-   .paper {
-  position: absolute;
-  top: 45%;
-  left: 50%;
-  transform: translate(-50%, 50%);
-  width: 85%;
-  max-height: 160px;
-  background: #fffafc;
-  padding: 16px;
-  border-radius: 12px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-  text-align: center;
-  opacity: 0;
-  transition: transform 1s ease, opacity 1s ease;
-  z-index: 2;
-  overflow-y: auto;
-}
-.envelope.open .paper {
-  transform: translate(-50%, -140%);
-  opacity: 1;
-}
+    .paper {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, 50%);
+      width: 85%;
+      max-height: 150px;
+      background: #fffafc;
+      padding: 16px;
+      border-radius: 12px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+      text-align: center;
+      opacity: 0;
+      transition: transform 1s ease, opacity 1s ease;
+      z-index: 2;
+      overflow-y: auto;
+    }
+
+    .envelope.open .paper {
+      transform: translate(-50%, -50%);
+      opacity: 1;
+    }
 
     h2 {
       color: #b30059;
@@ -197,12 +198,14 @@
         <div class="flap"></div>
         <div class="seal">💮</div>
         <div class="paper">
-          <h2>I Love You!! <3 </h2>
-          <p>You are the best person I’ve ever met.
-            Every day with you reminds me how lucky I am.
-            Your smile lights up my world, your kindness inspires me,
-            and your love makes everything better.
-            I can’t imagine life without you — you’ve made my heart your home. 💖😊❤️✨</p>
+          <h2>I Love You!! &lt;3</h2>
+          <p>
+            You are the best person I’ve ever met.<br>
+            Every day with you reminds me how lucky I am.<br>
+            Your smile lights up my world, your kindness inspires me,<br>
+            and your love makes everything better.<br>
+            I can’t imagine life without you — you’ve made my heart your home. 💖😊❤️✨
+          </p>
         </div>
       </div>
     </div>
