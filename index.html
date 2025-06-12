@@ -103,6 +103,31 @@
       opacity: 1;
     }
 
+    .particles {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: visible;
+    }
+
+    .particle {
+      position: absolute;
+      width: 8px;
+      height: 8px;
+      background: #ff8ecf;
+      border-radius: 50%;
+      animation: floatUp 2s ease-out forwards;
+      opacity: 0.8;
+    }
+
+    @keyframes floatUp {
+      0% { transform: translateY(0) scale(1); opacity: 0.8; }
+      100% { transform: translateY(-120px) scale(0.5); opacity: 0; }
+    }
+
     h2 {
       color: #b30059;
       margin-bottom: 12px;
@@ -126,12 +151,27 @@
         <p>Dearest, you are cherished beyond words. May your heart be forever joyful and blessed! 💖</p>
       </div>
     </div>
+    <div class="particles"></div>
   </div>
 
   <script>
     function openEnvelope(wrapper) {
       const envelope = wrapper.querySelector('.envelope');
+      const particlesContainer = wrapper.querySelector('.particles');
       envelope.classList.add('open');
+
+      for (let i = 0; i < 30; i++) {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + '%';
+        particle.style.top = '50%';
+        particle.style.backgroundColor = `hsl(${Math.random() * 360}, 70%, 80%)`;
+        particlesContainer.appendChild(particle);
+
+        setTimeout(() => {
+          particle.remove();
+        }, 2000);
+      }
     }
   </script>
 </body>
