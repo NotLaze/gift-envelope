@@ -114,7 +114,7 @@
 
     .paper {
       position: absolute;
-      top: 40%;
+      top: 50%;
       left: 50%;
       transform: translate(-50%, -50%) translateY(100%);
       width: 85%;
@@ -129,7 +129,7 @@
     }
 
     .envelope.open .paper {
-      transform: translate(-50%, -50%) translateY(0);
+      transform: translate(-50%, -50%) translateY(-40%);
       opacity: 1;
     }
 
@@ -149,12 +149,13 @@
 <body>
   <div class="left-panel">
     <div class="lyrics">
-      Pretty little baby
-      You say that maybe
-      You'll be thinkin' of me
-      And tryin' to love me...
+      Pretty little baby, you’re my world<br>
+      Light up my life like diamonds and pearls<br>
+      Every time you smile, the sun comes out<br>
+      You’re the only one I dream about 💗
     </div>
   </div>
+
   <div class="right-panel">
     <div class="envelope-wrapper" onclick="openEnvelope(this)">
       <div class="envelope">
@@ -169,7 +170,7 @@
   </div>
 
   <audio autoplay loop>
-    <source src="https://example.com/pretty-little-baby.mp3" type="audio/mpeg">
+    <source src="https://raw.githubusercontent.com/NotLaze/gift-envelope/main/pretty-little-baby.mp3" type="audio/mpeg">
     Your browser does not support the audio element.
   </audio>
 
