@@ -5,6 +5,8 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Baronial Gift Envelope</title>
   <style>
+    @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
     body {
       margin: 0;
       background: linear-gradient(135deg, #ffe6f0, #ffd6e9, #ffc1e3);
@@ -12,7 +14,7 @@
       animation: gradientShift 10s ease infinite;
       font-family: 'Georgia', serif;
       display: flex;
-      justify-content: center;
+      justify-content: space-between;
       align-items: center;
       height: 100vh;
       overflow: hidden;
@@ -22,6 +24,34 @@
       0% { background-position: 0% 50%; }
       50% { background-position: 100% 50%; }
       100% { background-position: 0% 50%; }
+    }
+
+    .left-panel {
+      width: 25%;
+      height: 100%;
+      border-right: 3px solid #cc6699;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      padding: 20px;
+      box-sizing: border-box;
+      font-family: 'Press Start 2P', cursive;
+      font-size: 10px;
+      color: #b30059;
+      text-align: center;
+    }
+
+    .lyrics {
+      white-space: pre-wrap;
+      line-height: 1.4;
+    }
+
+    .right-panel {
+      width: 75%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .envelope-wrapper {
@@ -117,16 +147,31 @@
   </style>
 </head>
 <body>
-  <div class="envelope-wrapper" onclick="openEnvelope(this)">
-    <div class="envelope">
-      <div class="flap"></div>
-      <div class="seal">💮</div>
-      <div class="paper">
-        <h2>🎁 A Royal Surprise!</h2>
-        <p>Dearest, you are cherished beyond words. May your heart be forever joyful and blessed! 💖</p>
+  <div class="left-panel">
+    <div class="lyrics">
+      Pretty little baby
+      You say that maybe
+      You'll be thinkin' of me
+      And tryin' to love me...
+    </div>
+  </div>
+  <div class="right-panel">
+    <div class="envelope-wrapper" onclick="openEnvelope(this)">
+      <div class="envelope">
+        <div class="flap"></div>
+        <div class="seal">💮</div>
+        <div class="paper">
+          <h2>🎁 A Royal Surprise!</h2>
+          <p>Dearest, you are cherished beyond words. May your heart be forever joyful and blessed! 💖</p>
+        </div>
       </div>
     </div>
   </div>
+
+  <audio autoplay loop>
+    <source src="https://example.com/pretty-little-baby.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
 
   <script>
     function openEnvelope(wrapper) {
